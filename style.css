@@ -55,11 +55,23 @@ img, video {
 
 
 /* Responsive video container */
-iframe {
-    max-width: 100%;
-    height: 1200px; /* Adjust based on preference */
-    border: none;
+/* Center the iframe horizontally and vertically */
+.iframe-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    height: 100vh; /* Full viewport height */
 }
+
+/* Style the iframe */
+iframe {
+    max-width: 80%; /* Adjust width as needed */
+    height: 80vh; /* Adjust height dynamically */
+    border: none;
+    /*border: 3px solid black;
+    border-radius: 10px;*/
+}
+
 
 .video-container {
     position: relative;
