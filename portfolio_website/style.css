@@ -2,19 +2,45 @@
 body {
     font-family: Arial, sans-serif;
     /*font-family: Courier, monospace;*/
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 5px 0 0 5px; /* Reduce top and left margin */
-    padding: 5px; /* Reduce padding */
+    font-size: 24px;
+    line-height: 1.3;
+    /*width: 100%;
+    height: 100%;
+    max-width: 800px;*/
+    margin: 5px 0 0 5px;
+    /* Reduce top and left margin */
+    padding: 50px 15px;
+    /* Reduce padding */
     background-color: #f9f9f9;
     color: #333;
 }
 
+header {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: normal;
+    z-index: 1000;
+    background-color: #f9f9f9;
+    /* Matches background */
+    padding: 1px 10px;
+
+}
+
+
 
 h1 {
-    font-size: 24px;
+    font-size: inherit;
+    /* Makes it match the default body font size */
+    font-family: inherit;
+    /* Uses the same font as the body */
+    font-weight: normal;
+    /* Removes bold styling if present */
     margin-bottom: 10px;
 }
+
 
 h2 {
     font-size: 20px;
@@ -22,51 +48,113 @@ h2 {
     margin-bottom: 10px;
 }
 
+p:first-of-type {
+    margin-top: 15px;
+}
+
 p {
-    margin-bottom: 15px;
+
+    margin: 0;
+    /*margin-bottom: 15px;*/
+}
+
+.last-text {
+    /* Adds margin after the last line of text in body */
+    margin-bottom: 20px;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
+    line-height: 0.9;
+    list-style-type: none;
+    /* Removes bullet points */
+    padding-left: 0;
+    /* Removes extra left padding */
 }
 
+/*
+ul {
+    line-height: 0.8;
+    list-style-type: disc;
+    padding-left:20x;
+}
+ul ul {
+    list-style-type: circle; 
+    padding-left: 20px;
+}
+*/
 li {
     margin-bottom: 10px;
 }
 
 /* Link styles */
 a {
-    text-decoration: none;
-    color: #0066cc;
+    text-decoration: underline;
+    color: #0000FF;
+    /* #F55200*/
 }
 
 a:hover {
     text-decoration: underline;
 }
 
-/* Images and videos */
+/* Images and videos 
 img, video {
     max-width: 100%;
     height: auto;
     display: block;
     margin-bottom: 20px;
 }
+*/
+img,
+video {
+    width: 100%;
+    /* Makes the image take up the full viewport width */
+    height: auto;
+    /* Makes the image take up the full viewport height */
+    max-width: none;
+    object-fit: contain;
+    /* Ensures the image covers the screen without distortion */
+    display: block;
+    margin-bottom: 20px;
+}
+
+.image-container {
+    display: flex;
+    /* Makes images appear side by side */
+    justify-content: left;
+    /* Centers images horizontally */
+    gap: 23px;
+    /* Adds spacing between images */
+}
+
+.image-container img {
+    width: 49.25%;
+    /* Adjust width to fit within the container */
+    height: auto;
+    /* Maintains aspect ratio */
+}
+
 
 
 /* Responsive video container */
 /* Center the iframe horizontally and vertically */
 .iframe-container {
     display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    height: 100vh; /* Full viewport height */
+    justify-content: center;
+    /* Centers horizontally */
+    align-items: center;
+    /* Centers vertically */
+    height: auto;
+    /* 100vh */
+    margin: 20px 0;
 }
 
 /* Style the iframe */
 iframe {
-    max-width: 80%; /* Adjust width as needed */
-    height: 80vh; /* Adjust height dynamically */
+    /*max-width: 80%;  Adjust width as needed */
+    width: 100%;
+    height: 100vh;
+    /* Adjust height dynamically */
     border: none;
     /*border: 3px solid black;
     border-radius: 10px;*/
@@ -75,11 +163,20 @@ iframe {
 
 .video-container {
     position: relative;
-    padding-top: 56.25%; /* 16:9 aspect ratio */
+    padding-top: 56.25%;
+    /* 16:9 aspect ratio */
     height: 0;
     overflow: hidden;
     max-width: 100%;
+    margin-bottom: 20px;
+    /* Adds spacing between videos */
 }
+
+.video-container:last-child {
+    margin-bottom: 0;
+    /* Ensures no extra margin after the last video */
+}
+
 
 .video-container iframe {
     position: absolute;
@@ -88,6 +185,47 @@ iframe {
     width: 100%;
     height: 100%;
 }
+
+.video-row {
+    display: flex;
+    /* Arrange videos side by side */
+    justify-content: left;
+    /* Center-align videos */
+    gap: 15px;
+    /* Add spacing between videos */
+}
+
+.video-row video {
+    width: 38%;
+    /* Adjust width to fit within the same row */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+.last-video {
+    /* for Breadwoman video */
+    width: 38%;
+    /* Adjust width as needed */
+    display: block;
+    /* Ensures it behaves as a block element */
+    margin: 0px;
+    /* Centers the video */
+}
+
+
+.pdf-embed {
+    max-width: 49.3%;
+    /* Adjust width as needed */
+    margin: 0;
+    /* Centers it */
+}
+
+.pdf-embed iframe {
+    width: 100%;
+    height: 1000px;
+    /* Adjust height as needed */
+}
+
 
 /* Navigation links in header */
 nav {
